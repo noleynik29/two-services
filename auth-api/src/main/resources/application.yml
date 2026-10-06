@@ -1,0 +1,19 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/appdb}
+    username: ${POSTGRES_USER:app}
+    password: ${POSTGRES_PASSWORD:app_password}
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+  flyway:
+    enabled: true
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+    expiration-minutes: 60
+  internal-token: ${INTERNAL_TOKEN}
+  data-api-url: ${DATA_API_URL:http://data-api:8081}
